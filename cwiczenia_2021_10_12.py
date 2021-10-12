@@ -108,4 +108,55 @@ def zadanie_6():
     print(f'Srednia min i max = {(min_num + max_num)/2}')
 
 
-zadanie_6()
+#Zadanie 7
+import random
+
+def zadanie_7():
+    number_to_guess = random.randint(1,100)
+
+    guess = int(input("Podaj liczbe od 1 do 100: "))
+
+    while guess != number_to_guess:
+            print("Podałeś za dużą liczbe" if guess > number_to_guess else "Podałeś za małą liczbę")
+            guess = int(input("Podaj liczbę od 1 do 100: "))
+    print("Gratulacje")
+
+#Zadanie 8
+
+def zadanie_8():
+    number = int(input("Podaj liczbę całkowitą: "))
+
+    l_even = []
+    l_odd = []
+    sum = 0
+    while number != 0:
+        sum += number % 10
+        if (number % 10) % 2 == 0:
+            l_even.append(number%10)
+        else:
+            l_odd.append(number%10)
+        number = number // 10
+    
+    print(sum, l_even, l_odd)
+
+def zadanie_9():
+    number = int(input("Podaj liczbę: "))
+    print([x for x in range(1, number+1) if number%x == 0])
+
+from math import sqrt, floor
+def zadanie_10():
+    number = int(input("Podaj liczbę: "))
+    is_prime = False
+    if number > 2:
+        is_prime = True
+        for i in range(3, floor(sqrt(number))):
+            if number % i == 0:
+                is_prime = False
+                break
+    
+    print(f'{number} jest liczbą pierwszą' if is_prime else f'{number} nie jest liczbą pierwszą')
+
+zadanie_10()
+    
+
+

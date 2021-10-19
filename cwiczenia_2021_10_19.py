@@ -62,7 +62,7 @@ def Zadanie3():
            min_of_cols = l[j][i] if l[j][i] < min_of_cols else min_of_cols
         maxes.append(max_of_cols)
         mins.append(min_of_cols)
-    
+        
     print(maxes)
     print(mins)
     print(l)
@@ -109,4 +109,34 @@ def Zadanie5():
             sum_of_odd_lists += l[i][j] if i % 2 == 1 and j % 2 == 1 else 0
     print(sum)
     print(sum_of_odd_lists)
-Zadanie5()
+    l.reverse()
+    for i in range(len(l)):
+        l[i].reverse()
+    print(l)
+#Zadanie5()
+print ("""
+
+
+        ZADANIE 6
+
+
+""")
+def Zadanie6():
+    size = int(input("Podaj rozmiar macierzy: "))
+
+    l = [[i for i in range(1, size+1)] for i in range(1, size+1)]
+
+    l_output = []
+    for i in range(1, size + 1):
+        for j in range(size + 1):
+            l_output.append('+' if math.gcd(i, j) == 1 else '.')
+    
+    pointer = 0
+    print (" ",*l[0])
+    for i in range(0, len(l_output)):
+        if(i % size == 0 and i != 0):
+            print(i//size, *l_output[pointer:i])
+            pointer = i
+
+    
+Zadanie6()

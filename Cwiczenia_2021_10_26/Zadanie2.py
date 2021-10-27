@@ -63,7 +63,7 @@ def number_to_verbal_notation(number):
     # declaring list that contains 3-digits long string numbers of the input number
     # in case of making verbal notation of number we want to operate on sets of 3 digits of this number
     # starting from units 
-    help_list = [num_str[i:i+3] for i in range(0, len(num_str), 3)]
+    help_list = [num_str[set_of_3_digits:set_of_3_digits+3] for set_of_3_digits in range(0, len(num_str), 3)]
     print(help_list)
 
     # declaring temp variable that is going to be our iterator that helps us to specify if each iteration operates on thousands, milions etc.
@@ -72,16 +72,16 @@ def number_to_verbal_notation(number):
     output = ""
 
     #iterating through help list 
-    for i in help_list:
+    for set_of_3_digits in help_list:
 
         #output that helps us contain verbal notation of each set
         temp_output = ""
         # finding verbal representation of each set by checking its value
-        if len(i) > 1:
+        if len(set_of_3_digits) > 1:
             #reversing sets to get it in the right order
-            i_rev = i[::-1]
+            set_of_3_digits_rev = set_of_3_digits[::-1]
             #finding dozens by taking last two digits of set
-            dozens = int(i_rev[-2:])
+            dozens = int(set_of_3_digits_rev[-2:])
             print(dozens)
             if dozens > 19: 
                 temp_output += verbal_dozens[dozens - (dozens % 10)] + ('-' if dozens % 10 != 0 else '') + verbal_units[dozens%10] +  ' '
@@ -89,23 +89,23 @@ def number_to_verbal_notation(number):
                 temp_output += verbal_teens[dozens]
             else:
                 temp_output += verbal_units[dozens]
-            if len(i) == 3:
-                hundreds = int(i_rev[0])
+            if len(set_of_3_digits) == 3:
+                hundreds = int(set_of_3_digits_rev[0])
                 temp_output = (verbal_units[hundreds]) + ' ' + (verbal_others[100] if hundreds > 0 else '') + ' ' + temp_output
         #if our set is less than 10
         else:
-            temp_output = verbal_units[int(i)]
-            i_rev = int(i)
+            temp_output = verbal_units[int(set_of_3_digits)]
+            set_of_3_digits_rev = int(set_of_3_digits)
         
         #adding our verbal notation of set to whole output and checking if it's thousands or milions etc. based on value of temp variable
         if temp == 0:
             output = temp_output + ' ' + output
         elif temp == 1:
-            print(i, i_rev)
-            output = temp_output + (' ' + verbal_others[1000] if int(i_rev) != 0 else '') + ' ' + output
+            print(set_of_3_digits, set_of_3_digits_rev)
+            output = temp_output + (' ' + verbal_others[1000] if int(set_of_3_digits_rev) != 0 else '') + ' ' + output
         elif temp == 2:
-            print("jestem tu", i_rev, print(i))
-            output = temp_output + (' ' + verbal_others[1000000] if int(i_rev) != 0 else '') + ' ' + output
+            print("jestem tu", set_of_3_digits_rev, print(set_of_3_digits))
+            output = temp_output + (' ' + verbal_others[1000000] if int(set_of_3_digits_rev) != 0 else '') + ' ' + output
         temp += 1
 
     #getting rid of spaces

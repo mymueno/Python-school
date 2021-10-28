@@ -1,6 +1,6 @@
 import json, os, random
 
-class Dictionary:
+class DictionaryModel:
     def __init__(self, path):
         
         self.language_dictionary = {}
@@ -16,15 +16,18 @@ class Dictionary:
     def get_random_flashcard(self):
         return random.choice(self.language_dictionary.keys())
 
-    def load_saved_flashcards(self):
+    def load_saved_flashcards(self, file_name):
 
         if os.path.isfile(self.path):
-            with open(self.path, "r") as lang_dict_data:
+            with open(self.path + '\\' + file_name, "r") as lang_dict_data:
                 self.language_dictionary = json.load(lang_dict_data)
         else:
-            return "There is no saved dictionary file :("
+            return "There is no files :("
 
-    def save_flashcards(self):
+    def save_flashcards(self, file_name):
         if os.path.isfile(self.path):
-            with open(self.path, "a") as lang_dict_data:
+            with open(self.path + '\\' + file_name, "a") as lang_dict_data:
+                json.dump(self.language_dictionary, lang_dict_data)
+        else:
+            with open(self.path + '\\' + file_name, "w") as lang_dict_data:
                 json.dump(self.language_dictionary, lang_dict_data)

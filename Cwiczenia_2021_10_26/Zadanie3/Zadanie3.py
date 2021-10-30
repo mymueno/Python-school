@@ -69,7 +69,15 @@ def play():
 
 
 def fill_dictionary(dictionary):
-    ...
+    clear_screen()
+    
+    key = input("Input key word: ")
+    value = input("Input definition: ")
+
+    if key in dictionary:
+        print("This key word already exist in dictionary :)")
+    else:
+        dictionary[key] = value
 
 
 def display_content_of_dictionary(dictionary):
@@ -77,6 +85,10 @@ def display_content_of_dictionary(dictionary):
     for k, v in dictionary.items():
         print(f'{i}. {k}: {v}')
         i += 1
+    
+    print()
+    input("press enter to continue......")
+    clear_screen()
 
 def user_file_name_input(list_of_files):
 
@@ -90,8 +102,40 @@ def user_file_name_input(list_of_files):
     return file_name
 
 
+def show_files(path):
+        list_of_files = get_list_of_json_files(path)
+        iterator = 1
+
+        for file in list_of_files:
+            print(f'{iterator}. {file}')
+            iterator += 1
+
+
 def clear_screen():
     os.system('cls')
+
+def print_spaces(num_of_spaces):
+    for i in range(num_of_spaces):
+        print()
+
+
+def choose_file(len_of_list_of_files):
+    try:
+        choice = int(input("Choose file to load: "))
+    except ValueError:
+        choice = 0
+        while choice == 0:
+            try:
+                clear_screen()
+                choice = int(input("Choose file to load: "))
+                if not 0 < choice > len_of_list_of_files:
+                    choice == 0
+                    print(f'this must be the number from 1 to {len_of_list_of_files}')
+            except ValueError:
+                print(f'this must be the number from 1 to {len_of_list_of_files}')
+        
+    return choice
+
 
 def main():
 
@@ -99,12 +143,13 @@ def main():
     list_of_files = get_list_of_json_files(path)
 
     while True:
+        dictionary = DictionaryModel(path)
         user_choice = menu_1()
         clear_screen()
 
         if user_choice == 1:
 
-            dictionary = DictionaryModel(path)
+    
             file_name = user_file_name_input(list_of_files)
             
             clear_screen()
@@ -116,7 +161,7 @@ def main():
                 
                 if user_choice == 1:
                     
-                    fill_dictionary(dictionary)
+                    fill_dictionary(dictionary.dictionary)
                 
                 elif user_choice == 2:
 
@@ -124,15 +169,58 @@ def main():
                 
                 elif user_choice == 3:
 
-                    display_content_of_dictionary(dictionary.language_dictionary)
-                
+                    display_content_of_dictionary(dictionary.dictionary)
+
+
                 elif user_choice == 4:
                     dictionary.save_flashcards(file_name)
 
                 elif user_choice == 5:
+                    dictionary.save_flashcards(file_name)
                     return
         elif user_choice == 2:
+
             clear_screen()
+
+            show_files(path)
+            print_spaces(5)
+
+            choice = choose_file(len(list_of_files))
+            
+            file_name = list_of_files[choice - 1]
+            dictionary.load_saved_flashcards(list_of_files[choice - 1])
+            
+            clear_screen()
+
+            while user_choice != 4:    
+
+                user_choice = menu_2()
+                clear_screen()
+                
+                if user_choice == 1:
+                    
+                    fill_dictionary(dictionary.dictionary)
+                
+                elif user_choice == 2:
+
+                    play()
+                
+                elif user_choice == 3:
+
+                    display_content_of_dictionary(dictionary.dictionary)
+
+
+                elif user_choice == 4:
+                    dictionary.save_flashcards(file_name)
+
+                elif user_choice == 5:
+                    dictionary.save_flashcards(file_name)
+                    return
+            
+
+            return
+
+
             
             
 

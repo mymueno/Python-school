@@ -1,6 +1,5 @@
 import os
 import json
-from Cwiczenia_2021_10_26.Zadanie3.GameModel import GameModel
 from DictionaryModel import DictionaryModel
 from os.path import isfile, join, dirname
 
@@ -90,6 +89,7 @@ def display_content_of_dictionary(dictionary):
     input("press enter to continue......")
     clear_screen()
 
+
 def user_file_name_input(list_of_files):
 
     file_name = input("Input name of the new dictionary: ") + '.json'
@@ -113,6 +113,7 @@ def show_files(path):
 
 def clear_screen():
     os.system('cls')
+
 
 def print_spaces(num_of_spaces):
     for i in range(num_of_spaces):
@@ -218,13 +219,6 @@ def main():
                     dictionary.save_flashcards(file_name)
                     return
             
-
-            
-
-
-            
-            
-
         elif user_choice == 3:
             return
         

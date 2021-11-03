@@ -1,5 +1,6 @@
 import os
 import json
+from Cwiczenia_2021_10_26.Zadanie3.GameModel import GameModel
 from DictionaryModel import DictionaryModel
 from os.path import isfile, join, dirname
 
@@ -203,7 +204,7 @@ def main():
                 
                 elif user_choice == 2:
 
-                    play()
+                    game = GameModel(dictionary.dictionary)
                 
                 elif user_choice == 3:
 
@@ -218,7 +219,7 @@ def main():
                     return
             
 
-            return
+            
 
 
             

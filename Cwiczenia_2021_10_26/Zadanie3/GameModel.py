@@ -15,8 +15,10 @@ class GameModel():
         
         """)
     
+
+    # TODO
     def choose_option(self):  
         while True:
-            
+            ...
             
             

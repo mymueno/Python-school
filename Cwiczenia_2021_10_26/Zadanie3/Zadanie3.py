@@ -65,8 +65,7 @@ def menu_2():
     return user_choice
 
 
-def play():
-    ...
+
 
 
 def fill_dictionary(dictionary):
@@ -165,8 +164,8 @@ def main():
                     fill_dictionary(dictionary.dictionary)
                 
                 elif user_choice == 2:
-
-                    play()
+                    return
+                    #TODO
                 
                 elif user_choice == 3:
 
@@ -204,7 +203,8 @@ def main():
                 
                 elif user_choice == 2:
 
-                    game = GameModel(dictionary.dictionary)
+                    #TODO
+                    ...
                 
                 elif user_choice == 3:
 

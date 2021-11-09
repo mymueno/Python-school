@@ -1,5 +1,6 @@
 import json, os, random
 
+
 class DictionaryModel:
     def __init__(self, path):
         

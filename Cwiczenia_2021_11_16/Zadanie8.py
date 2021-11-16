@@ -62,3 +62,5 @@ files_that_contain_phrase("siema")
 # połączenie wszystkich plików w jeden z pominięciem powtarzających się linii,
 
 # porównania (diff) wybranych plików
+
+#siema

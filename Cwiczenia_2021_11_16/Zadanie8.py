@@ -70,3 +70,5 @@ def proportion_of_integers_and_real_numbers():
 # połączenie wszystkich plików w jeden z pominięciem powtarzających się linii,
 
 # porównania (diff) wybranych plików
+
+#siema

@@ -54,27 +54,6 @@ files_that_contain_phrase("siema")
 # zamianę podanego znaku lub ciągu znaków na inny we wszystkich plikach z
 # katalogu,
 
-def change_given_string_in_files(old_phrase, new_phrase):
-    for file in os.listdir(path):
-        if file != __file__.split('\\')[-1]:
-            with open(os.path.join(path, file), 'r', encoding='utf-8') as f:
-                lines = []
-                for line in f:
-                   lines.append(line) 
-
-            print(lines)
-            with open(os.path.join(path, file), 'w+', encoding='utf-8') as f:
-                for line in lines:
-                    if old_phrase in line:
-                        print(line)
-                        line = line.replace(old_phrase, new_phrase)
-                        print(line)
-                        f.write(line)
-                    else:
-                        f.write(line)
-                        
-
-change_given_string_in_files("siema", "naura")
 
 
 # wyświetlenie stosunku sumy liczb całkowitych do rzeczywistych (z wszystkich
@@ -82,7 +61,7 @@ change_given_string_in_files("siema", "naura")
 
 def proportion_of_integers_and_real_numbers():
     for file in os.listdir(path):
-        
+
 
 
 # wyświetlenie plików ze względu na liczbę znaków (w kolejności rosnącej pod

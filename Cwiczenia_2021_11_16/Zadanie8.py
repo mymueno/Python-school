@@ -76,20 +76,3 @@ def change_given_string_in_files(old_phrase, new_phrase):
 change_given_string_in_files("siema", "naura")
 
 
-
-# wyświetlenie stosunku sumy liczb całkowitych do rzeczywistych (z wszystkich
-# plików w katalogu),
-
-def proportion_of_integers_and_real_numbers():
-    for file in os.listdir(path):
-
-
-
-# wyświetlenie plików ze względu na liczbę znaków (w kolejności rosnącej pod
-# względem liczby znaków),
-
-# połączenie wszystkich plików w jeden z pominięciem powtarzających się linii,
-
-# porównania (diff) wybranych plików
-
-#siema

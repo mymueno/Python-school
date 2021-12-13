@@ -20,12 +20,7 @@ class Game:
                               '7' : [2,0],
                               '8' : [2,1],
                               '9' : [2,2]}
-    def check(self):
-        game_over = True
-
-
-
-        return game_over
+    
 
     def print_board(self):
         line = '-+-+-'
@@ -86,7 +81,6 @@ class Game:
                 self.is_game_over = True
                 self.result = self.outcomes[1 if self.turn == 'x' else 2]
 
-        print(diagonals)
 
         if self.moves == 9 and not self.is_game_over:
             self.is_game_over = True
